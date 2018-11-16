@@ -6,8 +6,10 @@ module.exports = {
       var _this = this
 
       var fontFamily = this.getOption('fontFamily')
-      var regular = new FontFaceObserver(fontFamily).load()
-      var bold = new FontFaceObserver(fontFamily, { weight: 'bold' }).load()
+      var fontWeight = this.getOption('fontWeight')
+      var fontWeightBold = this.getOption('fontWeightBold')
+      var regular = new FontFaceObserver(fontFamily, { weight: fontWeight }).load()
+      var bold = new FontFaceObserver(fontFamily, { weight: fontWeightBold }).load()
 
       return regular.constructor.all([regular, bold]).then(
         function() {
